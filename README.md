@@ -1,2 +1,2 @@
 # wordpress-docker
-Docker image for wordpress
+Docker image for wordpress. Automatically installs the latest available wordpress version.
