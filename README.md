@@ -1,2 +1,7 @@
-# wordpress-docker
-Docker image for wordpress. Automatically installs the latest available wordpress version.
+# wordpress
+Wordpress docker image.
+
+## Getting started
+```
+docker-compose up -d
+```
