@@ -1,5 +1,5 @@
-# wordpress
-Wordpress docker image.
+# wordpress-docker
+Wordpress docker image. Automatically downloads the latest wordpress version on build.
 
 ## Getting started
 ```
