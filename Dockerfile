@@ -5,7 +5,9 @@ RUN set -eux; \
     apt-get update; \
     apt-get install -y --no-install-recommends \
     # Ghostscript is required for rendering PDF previews
-    ghostscript unzip \
+    ghostscript \ 
+    unzip \
+    jq \
     ; \
     rm -rf /var/lib/apt/lists/*
 
@@ -31,7 +33,6 @@ RUN set -ex; \
     mysqli \
     opcache \
     zip \
-    jq \
     ; \
     pecl install imagick-3.4.4; \
     docker-php-ext-enable imagick; \
