@@ -113,7 +113,7 @@ ENV WORDPRESS_SHA1 e7089e7163045e818634e3060f7e3c44dc2a7eaf
 
 
 RUN set -ex; \
-    curl -o wordpress.zip -fSL "https://downloads.wordpress.org/release/wordpress-${WORDPRESS_VERSION}-no-content.zip"; \
+    curl -o wordpress.zip -fSL $WORDPRESS_VERSION; \
     echo "$WORDPRESS_SHA1 *wordpress.zip" | sha1sum -c -; \
     # upstream tarballs include ./wordpress/ so this gives us /usr/src/wordpress
     unzip wordpress.zip -d /usr/src/; \
