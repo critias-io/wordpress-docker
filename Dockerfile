@@ -108,13 +108,10 @@ RUN set -eux; \
 VOLUME /var/www/html
 
 
-ENV WORDPRESS_VERSION $(curl https://api.wordpress.org/core/version-check/1.7/ 2>/dev/null | jq -r '.offers[0].packages.no_content')
-ENV WORDPRESS_SHA1 e7089e7163045e818634e3060f7e3c44dc2a7eaf
-
+RUN echo $(curl https://api.wordpress.org/core/version-check/1.7/ 2>/dev/null | jq -r .offers[0].packages.no_content)
 
 RUN set -ex; \
-    curl -o wordpress.zip -fSL $WORDPRESS_VERSION; \
-    echo "$WORDPRESS_SHA1 *wordpress.zip" | sha1sum -c -; \
+    curl -o wordpress.zip -fSL $(curl https://api.wordpress.org/core/version-check/1.7/ 2>/dev/null | jq -r '.offers[0].packages.no_content'); \
     # upstream tarballs include ./wordpress/ so this gives us /usr/src/wordpress
     unzip wordpress.zip -d /usr/src/; \
     rm wordpress.zip; \
