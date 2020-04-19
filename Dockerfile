@@ -8,8 +8,10 @@ RUN set -eux; \
     ghostscript \ 
     unzip \
     jq \
-    ; \
-    rm -rf /var/lib/apt/lists/*
+    ssl-cert; \
+    rm -rf /var/lib/apt/lists/*; \
+    a2enmod ssl; \
+    a2ensite default-ssl;
 
 # install the PHP extensions we need (https://make.wordpress.org/hosting/handbook/handbook/server-environment/#php-extensions)
 RUN set -ex; \
