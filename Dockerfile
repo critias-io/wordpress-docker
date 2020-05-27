@@ -109,9 +109,6 @@ RUN set -eux; \
 
 VOLUME /var/www/html
 
-
-RUN echo $(curl https://api.wordpress.org/core/version-check/1.7/ 2>/dev/null | jq -r .offers[0].packages.no_content)
-
 RUN set -ex; \
     curl -o wordpress.zip -fSL $(curl https://api.wordpress.org/core/version-check/1.7/ 2>/dev/null | jq -r '.offers[0].packages.no_content'); \
     # upstream tarballs include ./wordpress/ so this gives us /usr/src/wordpress
